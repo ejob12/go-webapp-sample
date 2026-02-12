@@ -6,6 +6,12 @@ pipeline {
         sh 'go test ./...'
       }
     }
-
+    stage('build') {
+      steps {
+        script {
+          docker.build("adminturneddevops/go-webapp-sample")
+        }
+      }
+    }
   }
 }
